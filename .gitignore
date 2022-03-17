@@ -5,3 +5,4 @@ steg-decode
 *.ppm
 makefile
 .vscode
+error
