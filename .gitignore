@@ -1,0 +1,7 @@
+*.o
+primes
+primes-i
+steg-decode
+*.ppm
+makefile
+.vscode
