@@ -3,6 +3,6 @@
 
 #include "bitset.h"
 
-extern void Erathostenes(bitset_t arr);
+extern void Eratosthenes(bitset_t arr);
 
 #endif

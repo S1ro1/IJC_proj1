@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
 
     bitset_alloc(arr, length);
 
-    Erathostenes(arr);
+    Eratosthenes(arr);
 
     int current_bit = 0;
     

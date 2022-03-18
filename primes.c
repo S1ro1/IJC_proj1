@@ -1,7 +1,7 @@
 #include "bitset.h"
-#include "eratosthenes.h"
 #include <stdio.h>
 #include <time.h>
+#include "eratosthenes.h"
 
 #define SIZE 300000000
 
@@ -11,7 +11,7 @@ int main(){
 	bitset_alloc(arr, SIZE);
 
 	int final_primes[10] = {};
-	Erathostenes(arr);
+	Eratosthenes(arr);
 	int idx = 0;
 
 	for (unsigned long i = SIZE - 1; i > 0; i--) {

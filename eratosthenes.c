@@ -2,7 +2,7 @@
 #include "eratosthenes.h" 
 #include <stdio.h>
 
-void Erathostenes(bitset_t arr){
+void Eratosthenes(bitset_t arr){
 	unsigned long size = bitset_size(arr);
 
 	unsigned long range = sqrt(size - 1);
