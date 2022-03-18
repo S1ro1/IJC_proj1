@@ -24,14 +24,14 @@ typedef unsigned long bitset_index_t;
 	if (name == NULL) error_exit("bitset_alloc: Error allocating memory");\
 	name[0] = size;\
 
-#ifndef USE_INLINE
+#ifndef DUSE_INLINE
 
 #define bitset_free(name) free(name)
 
 #define bitset_size(name) name[0]
 
 #define bitset_setbit(name, idx, expr)\
-	(idx > name[0]) ? error_exit("bitset_setbit: Index %lu mimo rozsah 0..%lu",\
+	(idx >= name[0]) ? error_exit("bitset_setbit: Index %lu mimo rozsah 0..%lu",\
     (unsigned long)idx, (unsigned long)bitset_size(name)) : ((expr) ?\
 	((name[(1 + idx / ul_bits)]) |=\
 	(1ul << (idx % ul_bits))) :\
