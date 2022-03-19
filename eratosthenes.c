@@ -12,7 +12,7 @@ void Eratosthenes(bitset_t arr){
 
 	for (unsigned long i = 2; i < range - 1; i++) {
 		if (bitset_getbit(arr, i) == 0) {
-			for (unsigned long j = 2 * i; j < size; j += i) {
+			for (unsigned long j = i * i; j < size; j += i) {
 				bitset_setbit(arr, j, 1);
 			}
 		}
