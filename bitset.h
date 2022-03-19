@@ -24,7 +24,7 @@ typedef unsigned long bitset_index_t;
 	if (name == NULL) error_exit("bitset_alloc: Error allocating memory");\
 	name[0] = size;\
 
-#ifndef DUSE_INLINE
+#ifndef USE_INLINE
 
 #define bitset_free(name) free(name)
 

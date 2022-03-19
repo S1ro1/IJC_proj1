@@ -8,7 +8,7 @@
 int main(){
 	clock_t start = clock();
 	
-	bitset_alloc(arr, SIZE);
+	bitset_create(arr, SIZE);
 
 	int final_primes[10] = {};
 	Eratosthenes(arr);
@@ -31,6 +31,5 @@ int main(){
 	
 	fprintf(stderr, "Time=%.3g\n", (double)(clock()-start)/CLOCKS_PER_SEC);
 
-	bitset_free(arr);
 	return 0;
 }
