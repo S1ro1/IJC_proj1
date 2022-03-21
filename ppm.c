@@ -10,6 +10,7 @@ void ppm_free(struct ppm *p) {
     free(p);
 }
 
+//reads a .ppm file into ppm struct
 struct ppm * ppm_read(const char *filename) {
     FILE *f = fopen(filename, "rb");
 
@@ -17,10 +18,12 @@ struct ppm * ppm_read(const char *filename) {
         warning_msg("Couldn't open file %s", filename);
     }
 
+    //properties of the file
     unsigned x_size;
     unsigned y_size;
     unsigned color_range;
 
+    //reads header
     fscanf(f, "P6 %u %u %u ", &x_size, &y_size, &color_range);
 
     if (color_range != 255) {
@@ -29,6 +32,7 @@ struct ppm * ppm_read(const char *filename) {
         return NULL;
     }
 
+    //number of bytes to allocate
     size_t calculated_img_size = x_size * y_size * 3;
 
     struct ppm* img = malloc(sizeof(struct ppm) + calculated_img_size);
@@ -42,6 +46,7 @@ struct ppm * ppm_read(const char *filename) {
     img->xsize = x_size;
     img->ysize = y_size;
 
+    //load binary data
     size_t img_size = fread(img->data, sizeof(char), calculated_img_size, f);
 
     if (img_size != calculated_img_size) {
@@ -51,15 +56,6 @@ struct ppm * ppm_read(const char *filename) {
         return NULL;
     }
 
-    char c = fgetc(f);
-    if (c != EOF) {
-        putchar(c);
-
-        warning_msg("No EOF found\n");
-        fclose(f);
-        free(img);
-        return NULL;
-    }
 
     fclose(f);
     return img;
