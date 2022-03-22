@@ -1,3 +1,9 @@
+// bitset.h
+// Řešení IJC-DU1, příklad a), 21.3.2022
+// Autor: Matej Sirovatka, FIT
+// Přeloženo: gcc 10.2.1 20210110
+// Hlavičkový soubor na implementaci bitsetu
+
 #ifndef BITSET_1_H
 #define BITSET_1_H
 
@@ -50,8 +56,8 @@ typedef unsigned long bitset_index_t;
 //returns the value of the bit with index idx
 #define bitset_getbit(name, idx)\
 	(idx >= name[0]) ?\
-	(error_exit("bitset_getbit: Index %lu mimo rozsah 0..%lu",\ 
-	(unsigned long)idx, (unsigned long)name[0])), 42 : /* 42 is answer to the universe*/\ 
+	(error_exit("bitset_getbit: Index %lu mimo rozsah 0..%lu",\
+	(unsigned long)idx, (unsigned long)name[0])), 42 : /* 42 is answer to the universe*/\
 	((name[(1 + idx / ul_bits)] &\
 	(1ul << (idx % ul_bits))) != 0)
 

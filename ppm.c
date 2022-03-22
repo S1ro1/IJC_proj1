@@ -1,3 +1,9 @@
+// ppm.c
+// Řešení IJC-DU1, příklad b), 21.3.2022
+// Autor: Matej Sirovatka, FIT
+// Přeloženo: gcc 10.2.1 20210110
+// Zdrojový soubor rozhraní pro načítaní .ppm souboru
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -15,7 +21,8 @@ struct ppm * ppm_read(const char *filename) {
     FILE *f = fopen(filename, "rb");
 
     if (f == NULL) {
-        warning_msg("Couldn't open file %s", filename);
+        warning_msg("Couldn't open file %s\n", filename);
+        return NULL;
     }
 
     //properties of the file

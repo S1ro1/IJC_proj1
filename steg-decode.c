@@ -1,3 +1,9 @@
+// steg-decode.c
+// Řešení IJC-DU1, příklad b), 21.3.2022
+// Autor: Matej Sirovatka, FIT
+// Přeloženo: gcc 10.2.1 20210110
+// Zdrojový soubor pro dešifrováni tajné správy v .ppm souboru
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
@@ -17,8 +23,7 @@ int main(int argc, char *argv[]) {
 
     //read it into ppm struct
     struct ppm * img = ppm_read(argv[1]);
-
-    if (!img) {
+    if (img == NULL) {
         error_exit("Error reading input file\n");
     }
 
@@ -64,9 +69,7 @@ int main(int argc, char *argv[]) {
                 current_bit = 0;
                 c = '\0';
             }
-
         } 
-        
     }
     //no '\0' was found, so the message wasn't finished with '\0'
     bitset_free(arr);
